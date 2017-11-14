@@ -6,8 +6,7 @@ module.exports = {
         return knex('category');
     },
     getAllBooks() {
-        return knex('book').where()
-            // .paginate();
+        return knex('book').paginate();
     },
     getBookByCategory(){
 
