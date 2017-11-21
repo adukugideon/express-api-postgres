@@ -1,6 +1,8 @@
-# ES6 REST API WITH EXPRESS AND POSTGRES
+# ES6 REST API WITH EXPRESS AND POSTGRES USING KNEX.JS
+
 Effort was put into using es6 as much as possible.
-The base URL ends with "/api/v1". For local development, the port is 3000.
+The base URL ends with "/api/v1". For local development, the port is 3000. On 
+Heroku, the base URL is "https://express-api-postgres.herokuapp.com/api/v1"
 All requests are GET requests
 The endpoints are as follows:
 1. "/categories": Endpoint for category tree
