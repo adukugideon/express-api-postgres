@@ -19,8 +19,7 @@ router.get('/categories', (req, res) => {
     queries.getAllCategories().then(category => {
         const categoryResponse=res.json(category);
         categoryData .grow(categoryResponse);
-
-        res.send(categoryData .getData())
+         categoryData .getData()
 
     });
 });
