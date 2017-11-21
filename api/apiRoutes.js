@@ -13,9 +13,22 @@ function isValidId(req, res, next) {
 
 
 
+router.get('/categories', (req, res) => {
+    const categoryData    = new Treeize();
+
+    queries.getAllCategories().then(category => {
+        const categoryResponse=res.json(category);
+        categoryData .grow(categoryResponse);
+
+        res.send(categoryData .getData())
+
+    });
+});
+
+
 router.get('/books', (req, res) => {
-    queries.getAllBooks().then(book1 => {
-        res.json(book1);
+    queries.getAllBooks().then(book => {
+        res.json(book);
     });
 });
 
@@ -57,16 +70,6 @@ router.get('/bookstatclientpercount/:id', isValidId, (req, res,next) => {
         else {
             next();
         }
-    });
-});
-router.get('/categories', (req, res) => {
-    const categoryData    = new Treeize();
-
-    queries.getAllCategories().then(category => {
-const categoryResponse=res.json(category);
-        categoryData .grow(categoryResponse);
-        categoryData .getData();
-
     });
 });
 

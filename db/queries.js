@@ -4,11 +4,11 @@ module.exports = {
 //2a
     getAllCategories() {
         // return knex.raw('with recursive cat_tree as (\n' +
-        //     '   select 1 level root.id, root.name::text, root.iconcolor, root.iconurl, root.description, root.listorder\n' +
+        //     '   select root.id, root.name::text, root.iconcolor, root.iconurl, root.description, root.listorder\n' +
         //     '   from category root\n' +
         //     '   where root.parent_id is null\n' +
         //     '   union all\n' +
-        //     '   select child.id, (p.name ||  child.name)::text AS "name", child.iconcolor, child.iconurl, child.description, child.listorder\n' +
+        //     '   select child.id, (p.name || \' \' || child.name)::text AS "name:id", child.iconcolor, child.iconurl, child.description, child.listorder\n' +
         //     '   from category child\n' +
         //     '     join cat_tree p on child.parent_id = p.id\n' +
         //     ')\n' +
@@ -33,7 +33,7 @@ module.exports = {
             '     ON cb.books_id = b.id\n' +
             '   WHERE cb.categories_id = c.id\n' +
             '  ) AS categories\n' +
-            'FROM public.book1 b\n' +
+            'FROM public.book b\n' +
             'ORDER BY uuid ASC LIMIT 50;');
 
     },
